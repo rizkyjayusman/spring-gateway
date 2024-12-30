@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.rizkyjayusman.user.proto";
+option java_outer_classname = "UserServiceProto";
+
+service UserService {
+  rpc getUserById (UserRequest) returns (UserResponse);
+}
+
+message UserRequest {
+  int64 userId = 1;
+}
+
+message UserResponse {
+  string message = 1;
+}

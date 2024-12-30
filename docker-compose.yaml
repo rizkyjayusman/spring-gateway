@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  consul:
+    image: consul:1.15.4
+    container_name: sg-consul
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+    command: agent -server -bootstrap -node=consul -client=0.0.0.0 -ui
+    volumes:
+      - consul_data:/consul/data
+
+volumes:
+  consul_data:
